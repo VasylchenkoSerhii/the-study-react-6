@@ -1,16 +1,16 @@
-export const App = () => {
+import { useSelector } from "react-redux";
+import { getContacts } from "redux/selectors";
+import FormContacts from "./FormContacts/FormContacts";
+import ContactsList from "./ContactsList/ContactsList";
+
+export default function App() {
+  const contacts = useSelector(getContacts);
+
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <FormContacts />
+      {contacts.length > 0 && <ContactsList />}
+    </>
   );
 };
+
