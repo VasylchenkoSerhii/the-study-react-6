@@ -1,5 +1,6 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "redux/contactsSlice";
+import { getContacts } from "redux/selectors";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from 'yup';
 
@@ -14,6 +15,8 @@ const shema = yup.object().shape({
 
 export default function FormContacts() {
 
+    const contacts = useSelector(getContacts);
+
     const initialValues = {
         name: "",
         number: "",
@@ -21,7 +24,18 @@ export default function FormContacts() {
 
     const dispatch = useDispatch();
 
-    const handleSubmit = (values, {resetForm}) => {
+    const isDublicate = ({name, number}) => {
+      const result = contacts.find(item => item.name === name
+      || item.number === number);
+    return result;
+    };
+
+    const handleSubmit = (values, { resetForm }) => {
+        if (isDublicate(values)) {
+            alert('this name or number is already added to contacts');
+            resetForm();
+            return;
+        }
         dispatch(addContact(values));
         resetForm();
     };
