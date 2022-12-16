@@ -11,6 +11,7 @@ export const theme = {
     accent: '#0d0d0d',
     lightAccent: '#cea8e3',
     muted: '#f6f6f6',
+    error: '#990000',
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
   fonts: {
