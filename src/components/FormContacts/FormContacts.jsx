@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "redux/contactsSlice";
 import { getContacts } from "redux/selectors";
 import { Formik } from "formik";
-import { FormStyle, SectionForm, InputForm, Label, Error } from "./FormContacts.styled";
+import { FormStyle, SectionForm, InputForm, Label, Error, FormBtn } from "./FormContacts.styled";
 import * as yup from 'yup';
 
 const shema = yup.object().shape({
@@ -51,15 +51,15 @@ export default function FormContacts() {
                 <FormStyle>
                     <Label>
                         Name
-                        <InputForm type="text" name="name" />
+                        <InputForm type="text" name="name" placeholder="Vasylchenko Serhii" />
                         <Error component="div" name="name" />
                     </Label>
                     <Label>
                         Number
-                        <InputForm type="tel" name="number" />
+                        <InputForm type="tel" name="number" placeholder="+380" />
                         <Error component="div" name="number" />
                     </Label>
-                    <button type="submit">Add contact</button>
+                    <FormBtn type="submit">Add contact</FormBtn>
                 </FormStyle>
             </Formik>
         </SectionForm>

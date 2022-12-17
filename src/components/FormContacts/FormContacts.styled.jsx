@@ -51,6 +51,8 @@ export const InputForm = styled(Field)`
     display: inline-block;
     width: 150px;
     height: 20px;
+    outline: none;
+    color: ${p => p.theme.colors.text};
 
     @media screen and (min-width: 768px) {
         width: 200px;
@@ -76,6 +78,28 @@ export const Error = styled(ErrorMessage)`
     @media screen and (min-width: 1200px) {
         font-size: ${p => p.theme.fontSizes.s};
         top: 37px;
+    }
+`;
+
+export const FormBtn = styled.button`
+    background-color: ${p => p.theme.colors.accent};
+    border: none;
+    color: ${p => p.theme.colors.white};
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    font-size: ${p => p.theme.fontSizes.s};
+    transition: background-color 250ms linear;
+
+    &:hover,
+    &:focus {
+        background-color: #666666;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: ${p => p.theme.fontSizes.m};
     }
 `;
 

@@ -21,7 +21,6 @@ export const Container = styled.div`
 
 export const Main = styled.main`
     text-align: center;
-    background-color: ${p => p.theme.colors.background};
     padding-top: 20px;
     padding-bottom: 20px;
 
